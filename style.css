@@ -1,0 +1,572 @@
+/*
+ * Conteúdo CSS Combinado
+ * Este arquivo foi feito combinando os estilos de index.css, pacotes.css e universal.css.
+/* =============================================== */
+/* RESET BÁSICO E ESTILOS GERAIS DO SITE           */
+/* =============================================== */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F7F4EA;
+    color: #1A1A40;
+    overflow-x: hidden; /* evita scroll horizontal */
+}
+
+/* Container geral para centralizar conteúdo */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Títulos principais de seção */
+h2 {
+    text-align: center;
+    color: #1A1A40;
+    margin: 30px 0 15px 0; /* do index.css */
+    font-size: 2.5em; /* do universal.css - mais proeminente */
+    margin-bottom: 40px; /* do universal.css */
+    font-family: 'Arial Black', Arial, sans-serif; /* do universal.css */
+}
+
+/* =============================================== */
+/* CABEÇALHO                                       */
+/* =============================================== */
+#cabecalho {
+    background-color: #1A1A40;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+    width: 100%;
+    padding: 15px 30px;
+    min-height: 80px;
+    box-sizing: border-box;
+    /* position: static; - removido para evitar conflito com index.css que não o tem */
+    /* top: 0; left: 0; - removido, pois width: 100% e background-color já fazem o cabeçalho ocupar o topo */
+}
+
+.container-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+.logo img {
+    height: 60px;
+}
+
+#nome-site {
+    position: absolute;
+    left: 13%;
+    transform: translateX(-50%);
+    font-size: 1.8em;
+    color: #fff;
+    margin: 0;
+}
+
+#navegacao ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#navegacao a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+#navegacao a:hover {
+    color: #FF5733;
+}
+
+/* =============================================== */
+/* SEÇÕES DA PÁGINA INICIAL (INDEX)                */
+/* =============================================== */
+
+/* Parágrafos centrais */
+#quem-somos p,
+#nossa-missao p,
+#visao p,
+#motivos-escolha p {
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+    line-height: 1.5;
+    font-size: 1.1rem;
+    color: #1A1A40;
+}
+
+/* Caixas motivos com borda dourada e sombra */
+#motivos-escolha > div {
+    background: white;
+    border: 2px solid #CBA135;
+    border-radius: 25px;
+    padding: 20px 25px;
+    margin: 20px auto;
+    max-width: 900px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#motivos-escolha > div:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(26,26,64,0.2);
+}
+
+/* Títulos dos motivos */
+#motivos-escolha h3 {
+    font-family: 'Arial Black', Arial, sans-serif;
+    color: #1A1A40;
+    margin-bottom: 10px;
+}
+
+/* =============================================== */
+/* ESTILOS DE CARDS (PACOTES E INGRESSOS)          */
+/* =============================================== */
+
+/* Define a grade responsiva onde os cards ficam */
+.grid { /* Usado em pacotes.css */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px 50px;
+}
+
+.ingressos-cards-grid { /* Usado em universal.css para ingressos */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Estiliza cada card individual (comum entre pacotes e universal) */
+.card {
+    background-color: white;
+    border: 2px solid #CBA135;
+    border-radius: 40px; /* de pacotes.css - mais arredondado */
+    padding: 15px; /* de pacotes.css */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    /* Adicionado de universal.css para layout de coluna em alguns cards */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Efeito ao passar o mouse no card inteiro*/
+.card:hover {
+    transform: translateY(-10px); /* Move o card para cima */
+    box-shadow: 0 8px 20px rgba(26, 26, 64, 0.2); /* Sombra mais intensa */
+}
+
+/* Estiliza a imagem dentro do card */
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 10px; /* de pacotes.css */
+}
+
+/* Nome do destino turístico / Título do Card */
+.card h3, .card h4 { /* unificado para ambos os tipos de título */
+    color: #1A1A40;
+    margin-bottom: 10px; /* de pacotes.css */
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 1.3em; /* de universal.css */
+    margin: 0 0 15px 0; /* de universal.css, sobrepondo o de pacotes.css para h4 */
+}
+
+/* Espaçamento entre as informações do card */
+.card p {
+    margin: 6px 0;
+    flex-grow: 1; /* de universal.css para empurrar o botão para baixo */
+}
+
+/* Botão "Ver Oferta" / ".btn-oferta" */
+.card a, .card .btn-oferta { /* unificado para ambos os botões */
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px; /* de pacotes.css */
+    background-color: #CBA135;
+    color: #F7F4EA;
+    text-decoration: none;
+    border-radius: 15px;
+    transition: 0.3s;
+    font-weight: bold; /* de universal.css */
+    padding: 12px 25px; /* de universal.css, mais generoso */
+}
+
+/* Quando o mouse passa sobre o botão */
+.card a:hover, .card .btn-oferta:hover {
+    background-color: #A07825; /* Tom escuro de dourado */
+}
+
+/* Preço no card (específico de universal.css) */
+.card .price {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+/* Texto abaixo do título principal (legenda - específico de pacotes.css) */
+.legenda {
+    text-align: center;
+    color: #1A1A40;
+    font-style: italic;
+    margin-top: 5px;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+/* Espaço entre a primeira e segunda seção de pacotes */
+section.pacotes + section.pacotes {
+    margin-top: 6%;
+}
+
+/* =============================================== */
+/* SEÇÃO DAS ATRAÇÕES (UNIVERSAL)                  */
+/* =============================================== */
+
+.atracao-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+}
+
+.atracao-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.atracao-card h2 { /* Regra para h2 dentro de .atracao-card */
+    text-align: left;
+    margin-top: 0;
+    font-size: 1.8em;
+    /* Sobrescreve a regra geral de h2 para ser específica aqui */
+    margin: 0; /* Garante que não tenha margem superior indesejada */
+    font-family: Arial, sans-serif; /* Reseta para Arial normal se 'Arial Black' não for desejado aqui */
+}
+
+.informacoes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+    margin: 20px 0;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.info-item h3 {
+    margin: 0 0 5px 0;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.info-item p {
+    margin: 0;
+    font-size: 0.95em;
+}
+
+.descricao-atracao h3 {
+    color: #CBA135;
+    font-size: 1.3em;
+    font-family: 'Arial Black', Arial, sans-serif;
+}
+
+.descricao-atracao p {
+    line-height: 1.6;
+}
+
+/* =============================================== */
+/* INGRESSOS E PACOTES (Universal)                 */
+/* =============================================== */
+
+#ingressos h3 {
+    text-align: center;
+    font-size: 1.8em;
+    margin: 40px 0 20px 0;
+}
+
+#ingressos > p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    line-height: 1.6;
+}
+
+
+/* =============================================== */
+/* SEÇÃO DE BENEFÍCIOS (UNIVERSAL)                 */
+/* =============================================== */
+
+.beneficios-card {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 60px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+}
+
+.beneficios-card.reverse {
+    flex-direction: row-reverse;
+}
+
+.beneficios-card img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.beneficios-card h3 {
+    margin-top: 0;
+}
+
+.beneficios-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.beneficios-card li {
+    padding: 8px 0;
+}
+
+/* =============================================== */
+/* RODAPÉ                                          */
+/* =============================================== */
+#rodape {
+    background-color: #1A1A40;
+    color: #fff;
+    padding: 30px 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin-top: 60px; /* do index.css */
+    width: 100%;
+}
+
+#rodape footer { /* do index.css */
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#rodape ol { /* de pacotes.css - se for uma lista ordenada no rodapé */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-redes-socias {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 20px auto; /* margem do index.css */
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.lista-redes-socias li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.lista-redes-socias a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.lista-redes-socias a:hover {
+    color: #FF5733;
+}
+
+.lista-redes-socias img {
+    width: 20px;
+    height: 20px;
+}
+
+#rodape p, footer p { /* unificado */
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+footer h2 { /* apenas se o h2 for usado no footer */
+    color: #fff;
+}
+
+/* css do alugueis*/
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  height: 100vh;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background-color: #F7F4EA;
+  color: #1A1A40;
+}
+
+/* Container principal */
+#formulario-aluguel-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Painel esquerdo: filtros */
+#formulario-esquerda {
+  flex: 0 0 35vw;
+  padding: 40px 30px 40px 10px;
+  background-color: #fdfdfd;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+#formulario-esquerda h2 {
+  margin-bottom: 20px;
+  font-size: 1.8em;
+}
+
+#formulario-esquerda label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#formulario-esquerda select,
+#formulario-esquerda button {
+  width: 80%;
+  max-width: 400px;
+  padding: 14px 18px;
+  font-size: 1.05rem;
+  border-radius: 12px;
+  border: 2px solid #CBA135;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: all 0.3s ease-in-out;
+}
+
+#formulario-esquerda select:focus,
+#formulario-esquerda button:focus {
+  outline: none;
+  border-color: #A07825;
+  box-shadow: 0 0 5px #CBA135;
+}
+
+#formulario-esquerda button {
+  background-color: #CBA135;
+  color: #fff;
+  cursor: pointer;
+}
+
+#formulario-esquerda button:hover {
+  background-color: #A07825;
+  transform: scale(1.03);
+}
+
+/* Painel direito: resultados */
+#quartosContainerFixo {
+  flex: 0 0 35vw;
+  padding: 40px 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  align-items: stretch;
+}
+
+/* Card de quarto */
+.quarto {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+  border: 2px solid #CBA135;
+  border-radius: 25px;
+  padding: 20px;
+  text-align: center;
+  width: 90%;
+  max-width: 300px;
+  
+  min-width: 200px;
+  
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quarto:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.quarto img {
+  width: 90%;
+  max-width: 300px;
+  
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.quarto h3 {
+  font-size: 1.1em;
+  margin: 10px 0;
+  font-family: 'Arial Black', Arial, sans-serif;
+}
+
+.quarto p {
+  font-size: 0.95em;
+  color: #333;
+  margin: 5px 0;
+}
+
+/* Rodapé fixo */
+footer#rodape {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 90%;
+  max-width: 300px;
+  
+  background-color: #1A1A40;
+  color: #fff;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 0.9em;
+  font-weight: bold;
+}
